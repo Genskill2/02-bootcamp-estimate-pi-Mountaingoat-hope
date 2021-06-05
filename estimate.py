@@ -1,6 +1,44 @@
 import math
 import unittest
 
+def wallis(n):
+    sum=1
+    def Eq(n):
+        a=n**2
+        #print(a)
+        b=a*4
+        c=b-1
+        return(b/c)
+    for i in range(1,n+1):
+        frm=Eq(i);
+        #print(f"{i} {frm} {sum*2}")
+        sum=sum*frm;
+        #print(sum)
+    pi=sum*2
+    return pi
+    
+def monte_carlo(n):
+  cirdt=0
+  sqdt=0
+  while cirdt==0 or sqdt==0:
+   for i in range(1,n+1):
+     x=random.random()
+     y=random.random()
+     x=2*x
+     y=2*y
+     x=x-1
+     y=y-1
+     #print(f"{i} {x} {y}")
+     sqrz=x**2+y**2
+     z=sqrz**0.5
+     if z<1.0:
+       cirdt=cirdt+1
+     else:
+       sqdt=sqdt+1
+  Pi=4*cirdt/n
+  print (f"{cirdt} {sqdt}")
+  return pi
+
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
