@@ -1,5 +1,6 @@
 import math
 import unittest
+import random
 
 def wallis(n):
     sum=1
@@ -37,7 +38,7 @@ def monte_carlo(n):
        sqdt=sqdt+1
   Pi=4*cirdt/n
   print (f"{cirdt} {sqdt}")
-  return pi
+  return Pi
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
